@@ -1,0 +1,86 @@
+# {{ModuleName}} Module
+
+## Overview
+
+This module follows Clean Architecture principles with Eloquent Models.
+
+## Structure
+
+```
+app/Modules/{{ModuleName}}/
+├── Domain/
+│   ├── Models/              # Eloquent Models with business logic
+│   ├── Repositories/        # Repository interfaces
+│   └── Services/            # Domain services (pure business logic)
+│
+├── Application/
+│   ├── Actions/             # Actions / Use cases
+│   └── DTO/                 # Data Transfer Objects
+│
+├── Infrastructure/
+│   ├── Repositories/        # Repository implementations
+│   ├── Services/            # Infrastructure services (external integrations)
+│   └── Providers/           # Service providers
+│
+└── Presentation/
+    ├── Http/
+    │   ├── Controllers/     # HTTP controllers
+    │   ├── Requests/        # Form request validation
+    │   └── Resources/       # API resources
+    └── Routes/              # Route definitions
+```
+
+## Usage
+
+### Creating an Action
+
+```php
+// app/Modules/{{ModuleName}}/Application/Actions/Create{{ModelName}}Action.php
+namespace App\Modules\{{ModuleName}}\Application\Actions;
+
+use App\Modules\{{ModuleName}}\Application\DTO\Create{{ModelName}}DTO;
+use App\Modules\{{ModuleName}}\Domain\Models\{{ModelName}};
+use App\Modules\{{ModuleName}}\Domain\Repositories\{{ModelName}}RepositoryInterface;
+
+class Create{{ModelName}}Action
+{
+    public function __construct(
+        private {{ModelName}}RepositoryInterface $repository
+    ) {}
+
+    public function execute(Create{{ModelName}}DTO $dto): {{ModelName}}
+    {
+        $model = new {{ModelName}}($dto->toArray());
+        return $this->repository->save($model);
+    }
+}
+```
+
+### Creating a Controller
+
+```php
+// app/Modules/{{ModuleName}}/Presentation/Http/Controllers/{{ModelName}}Controller.php
+namespace App\Modules\{{ModuleName}}\Presentation\Http\Controllers;
+
+use App\Modules\{{ModuleName}}\Application\Actions\Create{{ModelName}}Action;
+use App\Modules\{{ModuleName}}\Presentation\Http\Requests\Store{{ModelName}}Request;
+
+class {{ModelName}}Controller extends Controller
+{
+    public function __construct(
+        private Create{{ModelName}}Action $createAction
+    ) {}
+
+    public function store(Store{{ModelName}}Request $request)
+    {
+        // Implementation here
+    }
+}
+```
+
+## Service Provider
+
+The service provider is automatically registered in `bootstrap/providers.php`.
+
+Repository bindings are configured in:
+`app/Modules/{{ModuleName}}/Infrastructure/Providers/{{ModuleName}}ServiceProvider.php`

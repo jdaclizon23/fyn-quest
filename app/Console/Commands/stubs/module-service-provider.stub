@@ -1,0 +1,41 @@
+<?php
+
+namespace {{Namespace}}\Infrastructure\Providers;
+
+use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Route;
+
+
+/**
+ * {{ModuleName}} Module Service Provider
+ * Registers repository bindings
+ */
+class {{ServiceProviderName}} extends ServiceProvider
+{
+    /**
+     * Register services.
+     */
+    public function register(): void
+    {
+        // Bind repository interface to implementation
+        $this->app->bind(
+            \{{Namespace}}\Domain\Repositories\{{ModelName}}RepositoryInterface::class,
+            \{{Namespace}}\Infrastructure\Repositories\{{ModelName}}Repository::class
+        );
+    }
+
+    /**
+     * Bootstrap services.
+     */
+    public function boot(): void
+    {
+        // Register routes, migrations, etc. here if needed
+        // $this->loadRoutesFrom(__DIR__ . '/../../Presentation/Routes/{{RouteFileName}}');
+    }
+
+    private function mapApiRoutes(): void{
+        Route::prefix('{{RouteFileName}}')
+            ->middleware(['auth'])
+            ->group(app_path('Modules/{{ModelName}}/Presentation/Routes/{{RouteFileName}}.php'));
+    }
+}

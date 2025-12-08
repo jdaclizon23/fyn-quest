@@ -1,0 +1,29 @@
+<?php
+
+namespace {{Namespace}}\Domain\Repositories;
+
+use {{Namespace}}\Domain\Models\{{ModelName}};
+use Illuminate\Support\Collection;
+
+/**
+ * Repository Interface - Defined in Domain layer
+ * Uses Eloquent Models
+ */
+interface {{RepositoryInterfaceName}}
+{
+    public function all(array $searchCriteria): Collection;
+
+    public function paginated(array $searchCriteria = [], int $perPage = 15, int $page = 1): mixed;
+    
+    public function findById(int $id): ?{{ModelName}};
+
+    public function findByUuid(string $uuid): ?{{ModelName}};
+    
+    public function create(array $args = []): {{ModelName}};
+    
+    public function update(array $data,{{ModelName}} $model): {{ModuleName}};
+
+    public function deleteById(int $id): bool;
+
+    public function deleteByUuid(string $uuid): bool;
+}

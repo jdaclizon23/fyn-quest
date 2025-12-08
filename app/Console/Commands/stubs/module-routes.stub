@@ -1,0 +1,18 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| {{ModuleName}} Module Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register API routes for the {{ModuleName}} module.
+| These routes are loaded by the RouteServiceProvider.
+*/
+
+//     Route::get('/', [{{ModuleName}}Controller::class, 'index']);
+//     Route::post('/', [{{ModuleName}}Controller::class, 'store']);
+//     Route::get('/{id}', [{{ModuleName}}Controller::class, 'show']);
+//     Route::put('/{id}', [{{ModuleName}}Controller::class, 'update']);
+//     Route::delete('/{id}', [{{ModuleName}}Controller::class, 'destroy']);

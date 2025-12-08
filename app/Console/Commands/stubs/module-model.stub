@@ -1,0 +1,11 @@
+<?php
+
+namespace {{Namespace}}\Domain\Models;
+
+/**
+ * {{ModelName}} Model - Domain Model with business logic
+ */
+class {{ModelName}}
+{
+    // Add your business logic methods here
+}

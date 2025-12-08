@@ -1,0 +1,50 @@
+<?php
+
+namespace {{Namespace}}\Infrastructure\Repositories;
+
+use {{Namespace}}\Domain\Models\{{ModelName}};
+use {{Namespace}}\Domain\Repositories\{{RepositoryInterfaceName}};
+use Illuminate\Pagination\LengthAwarePaginator;
+
+/**
+ * Repository Implementation - Eloquent implementation
+ * Works directly with Eloquent Models
+ */
+class {{RepositoryImplementationName}} implements {{RepositoryInterfaceName}}
+{
+
+    public function all(array $searchCriteria){
+        // TODO: implement all here.
+    }
+
+    public function paginated(array $searchCriteria = [], int $perPage = 15, int $page = 1):LengthAwarePaginator{
+        // TODO: implement paginated here.
+    }
+
+    public function findById(int $id): ?{{ModelName}}{
+        // TODO: implement
+    }
+
+    public function findByUuid(string $uuid): ?{{ModelName}}{
+         // TODO: implement findByUuid
+    }
+
+    public function create(array $args = []) : {{ModuleName}}{
+         // TODO: implement create here.
+    }
+
+    public function update(array $data = [], {{ModelName}} $model): {{ModuleName}}{
+        // TODO: implement update here.
+    }
+
+    public function deleteById(int $id): bool{
+        // TODO: implement deleteById here.
+        return false;
+    }
+
+    public function deleteByUuid(string $uuid) : bool{
+        // TODO: implement deleteByUuid here.
+        return false;
+    }
+}
+
