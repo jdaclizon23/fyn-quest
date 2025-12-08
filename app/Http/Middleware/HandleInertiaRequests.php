@@ -45,6 +45,11 @@ class HandleInertiaRequests extends Middleware
             'auth' => [
                 'user' => $request->user(),
             ],
+            'menus' => function () {
+                $user = auth()->user();
+                if (!$user || !$user->role) return [];
+                return config("sidenav.{$user->role}", []);
+            },
             'sidebarOpen' => ! $request->hasCookie('sidebar_state') || $request->cookie('sidebar_state') === 'true',
         ];
     }
