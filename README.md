@@ -2,7 +2,7 @@
 
 **Fyn-Quest** is an open-source, cross-platform **On-the-Job Training (OJT) tracking and monitoring system** designed for schools and training institutions.
 
-Inspired by modern **Learning Management Systems (LMS)** and training platforms, Fyn-Quest provides a centralized solution where **students, instructors, supervisors, and administrators** can monitor progress, log tasks, and evaluate performance in real time.
+Built specifically for **work-based learning and internship programs**, Fyn-Quest provides a centralized platform where **students, instructors, supervisors, and administrators** can log daily OJT activities, track rendered hours, validate attendance, and evaluate performance in real time—ensuring transparency, compliance, and effective skills development throughout the training period.
 
 ---
 
@@ -71,4 +71,3 @@ Inspired by modern **Learning Management Systems (LMS)** and training platforms,
 ## 🏗️ Architecture Overview
 
 Fyn-Quest follows **DDD + Modular Architecture**, making it scalable and easy to maintain.
-
